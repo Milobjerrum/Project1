@@ -1,0 +1,17 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{ titel }}
+{% endblock %}
+
+{% block body %}
+    {% if content %}
+    {{ content|safe }}
+    {% else %}
+    <h1> {{ titel }} Page does not exsist </h1>
+    {% endif %}
+    <form action="{% url 'edit' %}">
+        <input type="hidden" name="titel" value="{{ titel }}">
+        <input type="submit" value="Edit">
+    </form>
+{% endblock %}
